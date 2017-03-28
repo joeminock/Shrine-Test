@@ -5,3 +5,6 @@ Shrine.storages = {
   cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # temporary
   store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/store"), # permanent
 }
+
+Shrine.plugin :activerecord
+Shrine.plugin :cached_attachment_data # for forms

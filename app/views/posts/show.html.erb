@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image dat:</strong>
-  <%= @post.image_dat %>
+  <strong>Image data:</strong>
+  <% if @post.image.present? %>
+    <%= image_tag @post.image_url %>
+  <% end %>
+  <%= @post.image_data %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

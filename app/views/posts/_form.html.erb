@@ -12,9 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :image_dat %><br>
-    <%= f.text_area :image_dat %>
+    <% if f.object.image.present? %>
+      <%= image_tag f.object.image_url %>
+    <% end %>
+
+    <%= f.label :image %><br>
+    <%= f.hidden_field :image, value: f.object.cached_image_data %>
+    <%= f.file_field :image %>
+    
   </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
